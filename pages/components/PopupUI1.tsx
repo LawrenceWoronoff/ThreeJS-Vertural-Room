@@ -10,9 +10,10 @@ const PopupUI1 = (props:any) => {
   }
 
   useEffect(() => {
-    var phoneFrame1 = document.getElementById('phoneFrame1');
-    var iframespan = document.getElementById('iframe');
-    var iframe_html = '<iframe id="phoneFrame1" src="'+ src +'" width="100%" height="100%"></iframe>';
+    var phoneFrame = document.getElementById('phoneFrame1');
+    phoneFrame?.remove();
+    var iframespan = document.getElementById('iframe1');
+    var iframe_html = '<iframe id="phoneFrame1" class="w-full h-full ml-2" src="'+ src +'" ></iframe>';
     iframespan.innerHTML = iframe_html;
   });
   return (
@@ -31,8 +32,8 @@ const PopupUI1 = (props:any) => {
             >
               X
             </button>
-            <span id="iframe">
-              <iframe id="phoneFrame1" className="w-full h-full ml-2" name="iframe_1"
+            <span id="iframe1" className="w-full h-full ml-2" style={{marginRight: '10px'}}>
+              <iframe id="phoneFrame1" className="w-full h-full ml-2"
               src={src}>
               </iframe>
             </span>

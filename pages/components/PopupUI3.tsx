@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useStore from "../../helpers/store"
 
 const PopupUI3 = (props:any) => {
@@ -7,6 +7,15 @@ const PopupUI3 = (props:any) => {
   const changeShowState = ()=>{
     useStore.setState({ popup: 0 });
   }
+
+  useEffect(() => {
+    var phoneFrame = document.getElementById('phoneFrame3');
+    phoneFrame?.remove();
+    var iframespan = document.getElementById('iframe3');
+    var iframe_html = '<iframe id="phoneFrame3" class="w-full h-full ml-2" src="'+ src +'"></iframe>';
+    iframespan.innerHTML = iframe_html;
+  });
+
   return (
     <>
       <div 
@@ -24,9 +33,11 @@ const PopupUI3 = (props:any) => {
               X
             </button>
 
-            <iframe className="w-full h-full ml-2" name="iframe_2" 
+            <span id="iframe3" className="w-full h-full ml-2" style={{marginRight: '10px'}}>
+              <iframe id="phoneFrame3" className="w-full h-full ml-2"
               src={src}>
-            </iframe>
+              </iframe>
+            </span>
           </div>
         </div>
       </div>
